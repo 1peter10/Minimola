@@ -1,0 +1,122 @@
+/* Additional features for Minimola */
+
+/* Stolen from simple.css (simplecss.org) */
+/* Format the expanding box */
+details {
+    padding: .6rem 1rem;
+    background: var(--accent-bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  
+  summary {
+    cursor: pointer;
+  }
+  
+  details[open] {
+    padding-bottom: .75rem;
+  }
+  
+  details[open] summary {
+    margin-bottom: .5rem;
+  }
+  
+  details[open]>*:last-child {
+    margin-bottom: 0;
+  }
+
+// crappy hacks
+.post-nav {
+    margin-top: $spacing-unit;
+  }
+  
+  
+    
+  .post-content div:first-of-type, .post-tags, .post-nav, .post-share {
+           padding-top: $spacing-unit;
+           margin-top: $spacing-unit;
+           border-top: 1px solid $grey-color-light;
+  }
+          
+  
+  .footnote-definition {
+          padding-bottom: $spacing-unit * 0.15;
+          padding-top: $spacing-unit * 0.15;
+    
+     
+     sup {
+          &.footnote-definition-label {
+            @include relative-font-size(0.7);
+            position: unset;
+            top: unset;
+             }
+     }
+        p {
+          display: inline !important;
+          @include relative-font-size(0.9);
+          line-height: $base-line-height * 0.7 !important;
+          
+        }
+      }
+  
+  .firstline-svg {
+      text-indent: -25px; 
+      margin-left: 25px;
+      
+  }
+  
+      
+  .next {
+      float: right;
+  }
+  
+  .previous {
+      float: left;
+  }
+  
+  .taxonomies {
+      margin: 2em 0 3em;
+      text-align: center;
+  
+    &__title {
+      display: inline-block;
+      font-size: 18px;
+    }
+  
+    &__items {
+      margin: 10px 0;
+  
+      a {
+        margin: 5px 10px;
+        word-wrap: break-word;
+        position: relative;
+  
+  
+        .count {
+          position: relative;
+          top: -8px;
+          right: -2px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  
+  .taxonomy {
+    margin: 2em 0;
+  
+    &__item {
+      padding: 3px 20px;
+      border-left: 1px solid #cacaca;
+      transition: 0.2s ease-out;
+  
+  
+      &__time {
+        margin-right: 10px;
+        color: #8a8a8a;
+      }
+  
+    }
+  }
+  

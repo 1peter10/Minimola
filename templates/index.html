@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="home">
+    <h2 class="post-list-heading">Posts</h2>
+    <ul class="post-list">
+        {% for page in paginator.pages %}
+            <li>
+                <span class="post-meta">
+                    {% if page.date %}
+                        {{ page.date | date(format="%b %-d, %Y") }}
+                        {% endif %}</span>
+                        <h3>
+                            <a class="post-link" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                        </h3>
+                {{ page.summary | safe }}
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <nav class="pagination">
+        {% if paginator.previous %}
+            <a class="previous" href="{{ paginator.previous | safe }}">‹ Previous</a>
+        {% endif %}
+        {% if paginator.next %}
+            <a class="next" href="{{ paginator.next | safe }}">Next ›</a>
+        {% endif %}
+    </nav>
+{% endblock content %}

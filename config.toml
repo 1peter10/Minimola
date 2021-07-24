@@ -1,0 +1,72 @@
+# The URL the site will be built for
+base_url = "https://linmob.net"
+title = "LINMOB.net"
+description = "LINMOB.net is a blog about LINux on MOBile devices. With the PinePhone and Librem 5 shipping it is back to report on GNU+Linux on mobile devices."
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+theme = "minimola"
+
+default_language = "en"
+
+feed_filename = "feed.xml"
+feed_limit = 10
+generate_feed = true
+
+taxonomies = [
+       {name = "tags", feed = true},
+       {name = "categories", feed = true}, 
+      ]
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+# highlight_code = true
+
+[extra]
+# Put all your custom variables here
+seo_title = "LINMOB.net | Librem 5, PinePhone, postmarketOS and more!" 
+minima_title = "LINux on MOBile"
+icon = "icon.png"
+twitter = "linmobblog"
+author = "Peter"
+author_legalname = "Peter Mack"
+email = "hello@linmob.net"
+description = "LINMOB.net is a blog about LINux on MOBile devices. With the PinePhone and Librem 5 shipping it is back to report on GNU+Linux on mobile devices."
+license = "Unless otherwise specified, all content on this page is licensed under CC-BY-SA 4.0."
+footer_menu =[ 
+   {url = "$BASE_URL/legal-notice-gdpr/", name = "Legal Notice and GDPR conformity"},
+]
+page_subtitle = "LINux on MOBile" 
+
+blog_menu =[ 
+   {url = "$BASE_URL/about", name = "About"},
+   {url = "$BASE_URL/resources/", name = "Resources"},
+   {url = "$BASE_URL/videos/", name = "Videos"},
+   {url = "https://linmobapps.frama.io", name = "App List"},
+   {url = "$BASE_URL/tags/", name = "Archive"},
+]
+
+[extra.social.links]
+twitter_username = "linmobblog"
+twitter = "https://twitter.com/linmobblog"
+mastodon_username = "linmob"
+mastodon = "https://fosstodon.org/@linmob"
+github_username = "1peter10"
+github = "https://github.com/1peter10"
+youtube_username = "LINMOBnet"
+youtube = "https://youtube.com/c/LINMOBnet/"
+peertube_username = "LINMOBnet"
+peertube = "https://devtube.dev-wiki.de/video-channels/linmob"
+odysee_username = "LINMOBnet"
+odysee = "https://odysee.com/@linmob:3"
+app_list_name = "App List"
+app_list = "https://linmobapps.frama.io"
+podcast_name = "PineTalk"
+podcast = "https://www.pine64.org/pinetalk/"
+email_username = "hello@linmob.net"
+email = "hello@linmob.net"
+rss = "ATOM feed"
