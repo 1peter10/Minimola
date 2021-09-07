@@ -67,4 +67,4 @@ element that the `title` field in the config represents, you can set the `even_t
 instead.
 
 ### More documentation
-Check the comments in [config.toml](config.toml), or open an [Issue](issues)!
+Check the comments in [config.toml](config.toml), or open an [Issue](https://github.com/1peter10/minimola/issues)!
