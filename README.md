@@ -1,5 +1,6 @@
 # Minimola
-Minimola is a an adaption of the famous Jekyll theme Minima 2 for Zola. It was created based on the Even theme for Zola.
+
+Minimola is a [Minima v2](https://github.com/jekyll/minima) Clone originally based on [Even](https://www.getzola.org/themes/even/) is a clean, responsive theme featuring categories, tags and pagination.
 
 ## Contents
 
@@ -18,7 +19,7 @@ git clone https://github.com/1peter10/minimola.git
 and then enable it in your `config.toml`:
 
 ```toml
-theme = "minimola"
+theme = "even"
 ```
 
 The theme requires tags and categories taxonomies to be enabled in your `config.toml`:
@@ -62,7 +63,8 @@ site URL.
 
 ### Title
 The site title is shown on the header. As it might be different from the `<title>`
-element that the `title` field in the config represents, you can set the `minima_title`
+element that the `title` field in the config represents, you can set the `even_title`
 instead.
 
-If you want to set a special title inside the <title>-element, you can use `seo_title`.
+### More documentation
+Check the comments in [config.toml](config.toml), or open an [Issue](issues)!

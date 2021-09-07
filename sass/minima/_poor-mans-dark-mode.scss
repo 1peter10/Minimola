@@ -31,9 +31,9 @@
     img {
       opacity: .70;
       transition: opacity .5s ease-in-out;
-    }
-    img:hover {
-      opacity: 1;
+      &:hover {
+            opacity: 1;
+      }
     }
 
     .site-nav {
@@ -47,4 +47,5 @@
         
         }
     }
+    
   }

@@ -1,0 +1,15 @@
+{% macro search_head() %}
+        <script src="{{ get_url(path="plugins/elasticlunr.min.js") | safe }}" defer></script>
+        <script src="{{ get_url(path="search_index." ~ lang ~ ".js") | safe }}" defer></script>
+        <script src="{{ get_url(path="js/search.js") | safe }}" defer></script>
+{% endmacro %}
+
+{% macro search() %}
+     <div class="search taxonomies">
+        <h2>Search</h2>
+        <form class="">
+            <input id="userinput" class="search" type="search" placeholder="Search ..." aria-label="Search ..." autocomplete="off">
+            <div id="suggestions" class="suggestions"></div>
+        </form>
+    </div>
+{% endmacro %} 

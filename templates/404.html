@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 
+{% block extra_head %}
+    {% if config.build_search_index %}
+        {{ macros_search::search_head() }}
+    {% endif %}
+{% endblock %}
+
 {% block content %}
-<h1>404</h1>
+<h2>404</h2>
 {% if config.extra.not_found_message %}
   {{ config.extra.not_found_message | markdown | safe }}
 {% endif %}
+
+{% if config.build_search_index %}
+Maybe you can find it here:
+    {{ macros_search::search() }}
+{% endif %}
+
 {% endblock content %}

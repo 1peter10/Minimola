@@ -1,0 +1,29 @@
+// Styling the Search on Minimola (optional tags page/"archive")
+
+.search {
+    form input {
+    background-color: $background-color;
+    color: $text-color;
+    max-width: $content-width - $spacing-unit * 2;
+    border: 1px solid $grey-color;
+    padding: $spacing-unit * 0.1;
+    border-radius: $spacing-unit * 0.1;
+    }
+    div { 
+        margin: $spacing-unit * 0.4  0;
+        text-align: justify;
+        
+        span {
+            padding: 0 $spacing-unit * 0.2;
+            &:first-child {
+                padding:0;
+            }
+        }
+    }
+}    
+@media (prefers-color-scheme: dark) {
+    .search form input {
+      background-color: $darkmode-background-color;
+      color: $darkmode-text-color;
+    }
+}

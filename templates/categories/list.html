@@ -1,7 +1,12 @@
-{% extends "index.html" %}
-
+{% extends "base.html" %}
+{% block extra_head %}
+    {% if config.build_search_index %}
+        {{ macros_search::search_head() }}
+    {% endif %}
+{% endblock %}
 {% block content %}
     <div class="taxonomies">
+        <h2>Categories</h2>
         <div class="taxonomies__title">
             {{ terms | length }} categories in total
         </div>
@@ -13,5 +18,9 @@
                 </a>
             {% endfor %}
         </div>
+        {% if config.build_search_index %}
+        Didn't find what your looking for?
+            {{ macros_search::search() }}
+        {% endif %}
     </div>
 {% endblock content %}

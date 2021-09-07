@@ -1,11 +1,13 @@
+{%- import 'macros/search.html' as macros_search -%}
 <!DOCTYPE html>
 <html lang="{% if lang %}{{ lang }}{% else %}en{% endif %}">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src https:">
+		<!-- Commented out by default to ease development 
+        <meta http-equiv="Content-Security-Policy" content="default-src https:">-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-        <meta name="generator" content="zola 0.13.0"/>
+        <meta name="generator" content="zola 0.14.1"/>
         <meta property="og:title" content="{% if page.title %}{{ page.title | safe }}{% elif config.extra.minima_title %}{{ config.extra.minima_title | safe }}{% else %}{{ config.title | safe }}{% endif %}">
         <meta property="og:locale" content="{% if meta_lang %}{{ meta_lang }}{% else %}en_US{% endif %}">
         {% if config.description %}   
@@ -17,8 +19,8 @@
         <meta name="og:description" content="{{ page.summary | striptags | safe }}">
         {% endif %}
         <meta property="og:type" content="website">
-        {% if config.extra.icon %}
-        <meta property="og:image" content="{% if page.extra.thumbnail %}{{ get_url(path=page.path ~ page.extra.thumbnail) | safe }}{% else %}{{ config.extra.icon | safe }}{% endif %}">
+        {% if icon.png %}
+        <meta property="og:image" content="{% if page.extra.thumbnail %}{{ get_url(path=page.path ~ page.extra.thumbnail) | safe }}{% else %}{{ icon.png | safe }}{% endif %}">
         {% endif %}
         <meta name="twitter:card" content="summary">
         {% if config.extra.social.links.twitter_username %}
@@ -26,17 +28,17 @@
         <meta name="twitter:site" content="@{{ config.extra.social.links.twitter_username | safe }}">
         {% endif %}
         <meta name="twitter:title" content="{% if page.title %}{{ page.title  | safe}}{% else %}{{ config.title | safe }}{% endif %}">       
-        {% if config.extra.icon %}
-        <link rel="prefetch" href="{{ resize_image(path=config.extra.icon, width=50, height=50, op="fill") | safe }}">
-        <link rel="icon" href="{{ resize_image(path=config.extra.icon, width=48, height=48, op="fill") | safe }}">
-        <link rel="apple-touch-icon" sizes="48x48" href="{{ resize_image(path=config.extra.icon, width=48, height=48, op="fill") | safe }}">
-        <link rel="apple-touch-icon" sizes="72x72" href="{{ resize_image(path=config.extra.icon, width=72, height=72, op="fill") | safe }}">
-        <link rel="apple-touch-icon" sizes="96x96" href="{{ resize_image(path=config.extra.icon, width=96, height=96, op="fill") | safe }}">
-        <link rel="apple-touch-icon" sizes="144x144" href="{{ resize_image(path=config.extra.icon, width=144, height=144, op="fill") | safe }}">
-        <link rel="apple-touch-icon" sizes="192x192" href="{{ resize_image(path=config.extra.icon, width=192, height=192, op="fill") | safe }}">
-        <link rel="apple-touch-icon" sizes="256x256" href="{{ resize_image(path=config.extra.icon, width=256, height=256, op="fill") | safe }}">
-        <link rel="apple-touch-icon" sizes="384x384" href="{{ resize_image(path=config.extra.icon, width=384, height=384, op="fill") | safe }}">
-        <link rel="apple-touch-icon" sizes="512x512" href="{{ resize_image(path=config.extra.icon, width=512, height=512, op="fill") | safe }}">
+        {% if icon.png %}
+        <link rel="prefetch" href="{{ resize_image(path=icon.png, width=50, height=50, op="fill") | safe }}">
+        <link rel="icon" href="{{ resize_image(path=icon.png, width=48, height=48, op="fill") | safe }}">
+        <link rel="apple-touch-icon" sizes="48x48" href="{{ resize_image(path=icon.png, width=48, height=48, op="fill") | safe }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ resize_image(path=icon.png, width=72, height=72, op="fill") | safe }}">
+        <link rel="apple-touch-icon" sizes="96x96" href="{{ resize_image(path=icon.png, width=96, height=96, op="fill") | safe }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ resize_image(path=icon.png, width=144, height=144, op="fill") | safe }}">
+        <link rel="apple-touch-icon" sizes="192x192" href="{{ resize_image(path=icon.png, width=192, height=192, op="fill") | safe }}">
+        <link rel="apple-touch-icon" sizes="256x256" href="{{ resize_image(path=icon.png, width=256, height=256, op="fill") | safe }}">
+        <link rel="apple-touch-icon" sizes="384x384" href="{{ resize_image(path=icon.png, width=384, height=384, op="fill") | safe }}">
+        <link rel="apple-touch-icon" sizes="512x512" href="{{ resize_image(path=icon.png, width=512, height=512, op="fill") | safe }}">
         {% endif %}
         <meta property="og:url" content="{{ get_url(path="", trailing_slash=false) | safe }}">
         <meta property="og:site_name" content="LINux on MOBile">
@@ -243,19 +245,29 @@
                             </ul>
                         </div>
                         <div class="footer-col footer-col-3">
+                            {% if config.extra.description %}
                             <p>{{ config.extra.description | escape }}</p>
-                        <p>Unless otherwise specified, all content on this page is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">CC-BY-SA 4.0</a>.</p>
-                        {% if config.extra.footer_menu %}     
+                            {% endif %}
                             <p>
-                                {% for item in config.extra.footer_menu %}
+                                {% if config.extra.copyright.owner %}
+                                &copy; {% if config.extra.copyright.time %}{{ config.extra.copyright.time | safe }}{% endif %} {{ config.extra.copyright.owner | safe }}.
+                                {% endif %}
+                                {% if config.extra.copyright.license %}Unless otherwise specified, all content on this page is licensed under {% if config.extra.copyright.license_link %}<a rel="license" href="{{ config.extra.copyright.license_link | safe }}">{% endif %}{{ config.extra.copyright.license | safe }}{% if config.extra.copyright.license_link %}</a>{% endif %}.{% endif %}
+                            </p>
+                            {% if config.extra.footer_menu %}     
+                                <p>
+                                    {% for item in config.extra.footer_menu %}
                                         <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}">
                                             {{ item.name }}
                                         </a>
-                                {% endfor %}
-                            </p>
-                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                         </div>
+                        {% if config.extra.footer_credit %}
+                        <p class="credit">Proudly powered by <a href="https://www.getzola.org/" rel="generator">Zola</a> and <a href="https://github.com/1peter10/minimola">Minimola</a>.</p>
+                    {% endif %}
                     </div>
                     </footer>
             {% endblock footer %}

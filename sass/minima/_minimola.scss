@@ -108,15 +108,23 @@ details {
   
     &__item {
       padding: 3px 20px;
-      border-left: 1px solid #cacaca;
+      border-left: 1px solid $grey-color-light;
       transition: 0.2s ease-out;
   
   
       &__time {
         margin-right: 10px;
-        color: #8a8a8a;
+        color: $grey-color;
       }
   
     }
   }
+
+// Footer credits
+
+ .credit {
+   text-align: center;
+   @include relative-font-size(0.8);
+   color: $grey-color;
+ }
   
