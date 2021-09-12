@@ -19,7 +19,7 @@ git clone https://github.com/1peter10/minimola.git
 and then enable it in your `config.toml`:
 
 ```toml
-theme = "even"
+theme = "minimola"
 ```
 
 The theme requires tags and categories taxonomies to be enabled in your `config.toml`:
