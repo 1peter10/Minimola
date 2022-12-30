@@ -6,14 +6,14 @@
       background-color: $darkmode-background-color;
       color: $darkmode-text-color;
     }
-    a.page-link a:hover, a.page-link:link, a.page-link:visited, a.site-title:link, a.site-title:visited, a.site-title:hover, .post-header a:hover, .post-meta a:hover, .post-footer a:hover, .post-content a:hover, .post-nav a:hover, .site-footer a:hover, .page-content a:hover {
+    a.page-link a:hover, a.page-link:link, a.page-link:visited, a.site-title:link, a.site-title:visited, a.site-title:hover, .post-header a:hover, .post-meta a:hover, .post-footer a:hover, .post-content a:hover, .post-nav a:hover, .site-footer a:hover, .page-content a:hover, table p, table ul li, table strong {
       color: $darkmode-text-color!important;
     }
-    .post-header a:link, .post-meta a:link, .post-footer a:link, .post-content a:link, .post-nav a:link, .site-footer a:link, .page-content a:link {
-      color: lighten($darkmode-brand-color, 15%);
-    }
-    .post-header a:visited, .post-meta a:visited, .post-footer a:visited, .post-content a:visited, .post-nav a:visited, .site-footer a:visited, .page-content a:visited {
+    .post-header a:link, .post-meta a:link, .post-edit a:link, .post-footer a:link, .post-content a:link, .post-nav a:link, .site-footer a:link, .page-content a:link {
       color: $darkmode-brand-color;
+    }
+    .post-header a:visited, .post-meta a:visited, .post-edit a:visited, .post-footer a:visited, .post-content a:visited, .post-nav a:visited, .site-footer a:visited, .page-content a:visited {
+      color: $darkmode-visited-link-color;
     }
     pre, code {
       background-color: darken($grey-color-dark, 10%) !important; //#232323
@@ -25,7 +25,7 @@
     .site-header {
       border-bottom: 1px solid $grey-color-dark!important;
     }
-    .post-content div:first-of-type, .site-footer, .post-share, .post-tags, .post-nav {
+    .post-content div:first-of-type, .site-footer, .post-share, .post-tags, .post-nav, .post-edit {
       border-top:1px solid $grey-color-dark!important;
     }  
     img {
@@ -35,7 +35,13 @@
             opacity: 1;
       }
     }
-
+    table {
+        tr {
+    &:nth-child(even) {
+      background-color: lighten($grey-color-dark, 6%);
+        }
+      }
+    }
     .site-nav {
     @include media-query($on-palm) {
         background-color: $darkmode-background-color!important;

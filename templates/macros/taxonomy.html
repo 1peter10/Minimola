@@ -1,0 +1,37 @@
+{% macro taxonomy_single() %}
+
+{% set sorted_pages = term.pages | sort(attribute="title") %}
+{% for page in sorted_pages %}
+    <div class="card">
+        <strong>
+            <a class="stretched-link" href="{{ page.permalink }}">{{ page.title }}</a>
+        </strong>
+        <span class="description" style="float:right;">{{ page.description }}</span>
+        <p class="description app-taxonomy">
+            {% if page.taxonomies.status %}
+            {% for state in page.taxonomies.status %}
+            <span class="{{ state }} taxonomy-status" title="Project State">{{ state }}</span>
+            {% endfor %}
+            {% endif %}
+          {% if page.taxonomies.services %}
+              {% for service in page.taxonomies.services %}
+              <span class="taxonomy-tag taxonomy-service {{ service }}" title="Service">{{ service }}</span>
+              {% endfor %}
+              {% endif %}
+              {% for category in page.taxonomies.categories %}
+              <span class="taxonomy-tag taxonomy-category {{ category }}" title="Category">{{ category }}</span>
+              {% endfor %}
+          {% for framework in page.taxonomies.frameworks %}
+            <span class="taxonomy-tag taxonomy-framework framework-{{ framework }}" title="Framework">{{ framework }}</span>
+          {% endfor %}
+          {% for compatibility in page.taxonomies.mobile_compatibility %}
+            <span class="taxonomy-tag taxonomy-mobile-compat mobile-compat-{{ compatibility }}" title="Mobile compatibility">{{ compatibility }}</span>
+          {% endfor %}
+        </p>
+    </div>
+{% endfor %}
+{% endmacro %}
+
+{% macro taxonomy_backlink() %}
+<p><a href="..">&#8592; Back to all {{ taxonomy.name | replace(from="_",to=" ") | title }}</a></p>
+{% endmacro %}

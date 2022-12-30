@@ -1,0 +1,13 @@
+{% macro edit_page(current_path) %}
+<p class="edit-post post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg><a href="{{ config.extra.repo_url }}/-/blob/{{ config.extra.repo_branch }}/content/pages{{ current_path | replace(from="\\", to="/") | trim_end_matches(pat="/") }}.md">Edit this page on Framagit</a></p>
+{% endmacro %}
+{% macro edit_post(current_path) %}
+<div class="post-edit">
+<p class="edit-post post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg><a href="{{ config.extra.repo_url }}/-/blob/{{ config.extra.repo_branch }}/content/{{ page.date | date(format="%F") }}-{{ current_path | replace(from="/", to="") | trim_end_matches(pat="/") }}.md">Edit this post on Framagit</a></p>
+</div>
+{% endmacro %}
+{% macro edit_post_with_images(current_path) %}
+<div class="post-edit">
+<p class="edit-post post-meta"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg><a href="{{ config.extra.repo_url }}/-/blob/{{ config.extra.repo_branch }}/content/{{ page.date | date(format="%F") }}-{{ current_path | replace(from="\\", to="") | trim_end_matches(pat="/") }}/index.md">Edit this post on Framagit</a></p>
+</div>
+{% endmacro %}

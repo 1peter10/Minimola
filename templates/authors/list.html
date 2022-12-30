@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block extra_head %}
+    {% if config.build_search_index %}
+        {{ macros_search::search_head() }}
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="taxonomies">
+        <h2>Authors</h2>
+        <div class="taxonomies__title">
+            {{ terms | length }} authors in total
+        </div>
+        <div class="taxonomies__items">
+            {% for category in terms %}
+                <a href="{{ category.permalink }}">
+                    {{ category.name }}
+                    <span class="count">{{ category.pages | length }}</span>
+                </a>
+            {% endfor %}
+        </div>
+        {% if config.build_search_index %}
+        Didn't find what your looking for?
+            {{ macros_search::search() }}
+        {% endif %}
+    </div>
+{% endblock content %}
