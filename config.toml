@@ -3,7 +3,7 @@ base_url = "https://"
 # The title of your page
 title = ""
 # A description (for those meta tags and such)
-description = "LINMOB.net is a blog about LINux on MOBile devices. With the PinePhone and Librem 5 shipping it is back to report on GNU+Linux on mobile devices."
+description = "Describe your awesome website, but don't make it too long!"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
@@ -15,7 +15,7 @@ theme = "minimola"
 
 # The language you're using
 default_language = "en"
-# custom feed.xml file for transitions from Jekyll in extras
+# find custom feed.xml file for transitions from Jekyll in extras
 feed_filename = "feed.xml" 
 feed_limit = 10
 
@@ -23,10 +23,12 @@ feed_limit = 10
 generate_feed = true
 
 # Taxonomies that this theme allows for
+# Authors is optional - makes sense for multi-author
 taxonomies = [
        {name = "tags", feed = true},
-       {name = "categories", feed = true}, 
-      ]
+       {name = "categories", feed = true},
+       {name = "authors", feed = true, paginate_by = 5},
+     ]
 
 [markdown]
 # Whether to do syntax highlighting
@@ -35,10 +37,10 @@ taxonomies = [
 
 [extra]
 # Put all your custom variables here 
-# Too many titles. Do I even use all of these
-seo_title = "LINMOB.net | Librem 5, PinePhone, postmarketOS and more!" 
-minima_title = "Custom Theme Title"
-page_subtitle = "Subtitle" 
+# Too many titles. You don't need to use them all.
+seo_title = "Title for seo purposes" 
+#minima_title = "Custom Theme Title"
+#page_subtitle = "Subtitle"
 # Loads "/static/icon.png"
 icon = true
 # Name
@@ -48,7 +50,7 @@ author_legalname = ""
 # E-Mail for footer, beware of spam
 email = ""
 # Yet another description
-description = "LINMOB.net is a blog about LINux on MOBile devices. With the PinePhone and Librem 5 shipping it is back to report on GNU+Linux on mobile devices."
+description = "A second description, that can be longer and, if used, is being displayed in the footer of each page."
 # License, see also copyright below 
 license = "Unless otherwise specified, all content on this page is licensed under CC-BY-SA 4.0."
 # Optional menu in footer to link even more stuff
@@ -66,7 +68,15 @@ blog_menu =[
 # 404
 not_found_message = "Sorry. This seems to be gone. :( Back to [safety](/)?"
 
-# Social links for the footer. The ones without _username are the URL
+# editable pages
+edit_page = true
+repo_url = "https://framagit.org/linmob/linmob.frama.io"
+repo_branch = "main"
+
+# if hosted on gitlab pages and using a custom domain, specify your Gitlab domain here, e.g. gitlab.io
+gitlab_pages_domain ="frama.io"
+
+# Optional Social links for the footer. The ones without _username are the URL
 [extra.social.links]
 twitter_username = ""
 twitter = ""
@@ -90,8 +100,9 @@ rss = "ATOM feed"
 
 [extra.copyright]
 owner = "Your name"
-time = "2007-2021"
+time = "2023"
 # License, if you use one and URL
 license = "CC-BY-SA 4.0"
 license_link = "https://creativecommons.org/licenses/by-sa/4.0/"
+
 

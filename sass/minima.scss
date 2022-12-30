@@ -12,7 +12,8 @@ $spacing-unit:     30px !default;
 
 $text-color:       #111 !default;
 $background-color: #fdfdfd !default;
-$brand-color:      #2a7ae2 !default;
+$brand-color:      #004f98 !default; // changed for increased accessibility
+$visited-link-color: #7828c3 !default; // new value, added for accessibility
 
 $grey-color:       #757575 !default; // changed from #828282 for accessibility reasons
 $grey-color-light: lighten($grey-color, 40%) !default;
@@ -24,7 +25,8 @@ $table-text-align: left !default;
 
 $darkmode-text-color:       #DEDEDE !default;
 $darkmode-background-color: #111 !default;
-$darkmode-brand-color: $brand-color;
+$darkmode-brand-color: #48a4ff !important;
+$darkmode-visited-link-color: #8c8dff !default;
 
 // Width of the content area
 $content-width:    800px !default;
