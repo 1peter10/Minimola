@@ -18,7 +18,7 @@
             • {% for author in page.taxonomies.authors %}<span itemprop="author" itemscope itemtype="http://schema.org/Person">
                 <span class="p-author h-card" itemprop="name">
                     <a href="{{ get_taxonomy_url(kind="authors", name=author) }}">{{ author }}</a>
-                </span>
+                </span> {% if page.extra.author_extra %} <span class="extraCredits"> {{ page.extra.author_extra }}</span>{% endif %}
               </span>
             {% endfor %}
             {% elif page.extra.author %}
