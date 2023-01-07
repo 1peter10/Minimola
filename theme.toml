@@ -1,24 +1,24 @@
-name = "even"
-description = "A robust, elegant dark theme"
+name = "minimola"
+description = " Minima v2 adapted for Zola "
 license = "MIT"
-homepage = "https://github.com/getzola/even"
-min_version = "0.11.0"
-demo = "https://zola-even.netlify.com"
+homepage = "https://github.com/1peter10/minimola"
+min_version = "0.16.0"
+demo = "https://linmob.net"
 
 [extra]
-even_menu = [
+blog_menu = [
     {url = "$BASE_URL", name = "Home"},
     {url = "$BASE_URL/categories", name = "Categories"},
     {url = "$BASE_URL/tags", name = "Tags"},
     {url = "$BASE_URL/about", name = "About"},
 ]
-even_title = "Even"
+minima_title = "Minimola"
 
 [author]
-name = "Vincent Prouillet"
-homepage = "https://www.vincentprouillet.com"
+name = "Peter Mack"
+homepage = "https://linmob.net/authors/peter"
 
 [original]
-author =  "olOwOlo"
-homepage = "https://blog.olowolo.com/example-site/"
-repo = "https://github.com/olOwOlo/hugo-theme-even"
+author =  "minima contributors"
+homepage = "https://jekyll.github.io/minima"
+repo = "https://github.com/jekyll/minima"
